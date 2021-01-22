@@ -1,0 +1,6 @@
+module Pods_Relay {
+  umbrella header "Pods-Relay-umbrella.h"
+
+  export *
+  module * { export * }
+}

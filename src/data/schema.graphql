@@ -1,0 +1,46 @@
+directive @specifiedBy(url: String!) on SCALAR
+type Auth {
+  token: String!
+  user: User!
+}
+
+scalar DateTime
+
+type Mutation {
+  createTweets(description: String!, author: String!): Tweet!
+  updateTweet(description: String!, author: String!, id: String!): Tweet!
+  upvoteTweet(id: String!): Tweet!
+  downvoteTweet(id: String!): Tweet!
+  createUser(password: String!, email: String!, name: String!): User!
+  signIn(password: String!, email: String!): Auth!
+}
+
+type Query {
+  tweets(pageSize: Float!, page: Float!): TweetPagination!
+  tweet(id: String!): Tweet!
+  users: [User!]!
+  user(id: String!): User!
+}
+
+type Tweet {
+  id: ID
+  author: String!
+  description: String!
+  likes: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type TweetPagination {
+  tweets: [Tweet!]!
+  totalPages: Float!
+}
+
+type User {
+  id: ID
+  email: String
+  name: String
+  password: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}

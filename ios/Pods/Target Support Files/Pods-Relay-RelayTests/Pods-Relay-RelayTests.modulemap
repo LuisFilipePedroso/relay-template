@@ -1,0 +1,6 @@
+module Pods_Relay_RelayTests {
+  umbrella header "Pods-Relay-RelayTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
