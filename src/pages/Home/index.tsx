@@ -1,13 +1,20 @@
 import React from 'react';
 
-import {Container, Button, PlusIcon} from './styles';
-import TweetsList from '../../components/TweetsList';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {ParamListBase} from '@react-navigation/native';
 
-const Home = () => {
+import TweetsList from '../../components/TweetsList';
+import {Container, Button, PlusIcon} from './styles';
+
+type Props = {
+  navigation: StackNavigationProp<ParamListBase>;
+};
+
+const Home = ({ navigation }: Props) => {
   return (
     <Container>
       <TweetsList />
-      <Button onPress={() => {}}>
+      <Button onPress={() => navigation.navigate('NewTweet')}>
         <PlusIcon />
       </Button>
     </Container>
