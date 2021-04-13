@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, {useState} from 'react';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { ParamListBase } from '@react-navigation/native';
-
 
 import {
   Container,
@@ -17,12 +16,14 @@ type Props = {
   navigation: StackNavigationProp<ParamListBase>;
 };
 
-const LOGGED_USER_ID = '600617c08fda4b3d6ac2409e';
+const LOGGED_USER_ID = 'Luis';
+
+type CreateTweet = {
+  message: string;
+}
 
 const NewTweet = ({ navigation }: Props) => {
   const [text, setText] = useState('');
-
-  const handleCreateTweet = useCallback(async () => { }, []);
 
   return (
     <Container>
@@ -30,7 +31,7 @@ const NewTweet = ({ navigation }: Props) => {
         <Button noBg onPress={() => navigation.goBack()}>
           <ButtonText noBg>Cancelar</ButtonText>
         </Button>
-        <Button onPress={() => handleCreateTweet()}>
+        <Button onPress={() => {}}>
           <ButtonText>Tweet</ButtonText>
         </Button>
       </ButtonsContainer>

@@ -11,13 +11,19 @@ import {
   Content,
   Header,
   LikesButton,
-  LikesIcon,
+  HeartIcon,
+  HeartFilledIcon,
   SubText,
   Text,
   TweetContainer,
 } from './styles';
 
+type LikeTweet = {
+  id: number;
+}
+
 const Tweet = ({tweet}: { tweet: ITweet }) => {
+
   const formattedDate = useMemo(
     () =>
       `à ${formatDistance(new Date(tweet.createdAt as Date), new Date(), {
@@ -32,13 +38,13 @@ const Tweet = ({tweet}: { tweet: ITweet }) => {
         <Text bold>{tweet.author}</Text>
         <SubText>{formattedDate}</SubText>
       </Header>
-      {tweet.description?.length > 0 && (
+      {tweet.message?.length > 0 && (
         <Content>
-          <Text>{tweet.description}</Text>
+          <Text>{tweet.message}</Text>
         </Content>
       )}
       <LikesButton onPress={() => {}}>
-        <LikesIcon />
+        { tweet.hasLiked ? <HeartFilledIcon /> : <HeartIcon />}
         <SubText>{tweet.likes}</SubText>
       </LikesButton>
     </TweetContainer>
@@ -47,20 +53,9 @@ const Tweet = ({tweet}: { tweet: ITweet }) => {
 
 const TweetsList = () => {
 
-  const tweets = [
-    {
-      id: '1',
-      author: 'Luis',
-      createdAt: new Date('2021-01-10T17:00:00Z'),
-      updatedAt: new Date('2021-01-10T17:00:00Z'),
-      description: 'Primeiro projeto com o relay',
-      likes: 2
-    }
-  ];
-
   return (
     <FlatList
-      data={tweets}
+      data={[]}
       renderItem={({item}) => <Tweet tweet={item} />}
       keyExtractor={(item, index) => index.toString()}
     />

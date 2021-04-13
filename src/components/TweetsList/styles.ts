@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 
 import HeartSVG from '../../assets/icons/heart.svg';
+import HeartFilledSVG from '../../assets/icons/heart-filled.svg';
+import {AppColors} from "../../styles/global";
 
 export const TweetContainer = styled.View`
   flex-grow: 1;
@@ -43,8 +45,14 @@ export const LikesButton = styled.TouchableOpacity.attrs({
   margin-top: 8px;
 `;
 
-export const LikesIcon = styled(HeartSVG)`
+export const HeartIcon = styled(HeartSVG)`
   width: 16px;
   height: 16px;
   color: #707070;
+`;
+
+export const HeartFilledIcon = styled(HeartFilledSVG)`
+  width: 16px;
+  height: 16px;
+  color: ${AppColors.PRIMARY};
 `;

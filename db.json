@@ -1,0 +1,12 @@
+{
+  "tweets": [
+    {
+      "message": "First",
+      "author": "Luis",
+      "createdAt": "2021-04-12T22:49:18.537Z",
+      "likes": 1,
+      "id": 1,
+      "hasLiked": true
+    }
+  ]
+}

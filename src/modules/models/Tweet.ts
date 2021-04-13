@@ -1,8 +1,9 @@
 export default interface Tweet {
-  id: string | null;
+  id: number;
   author: string;
-  description: string;
+  message: string;
   likes: number | null;
+  hasLiked: boolean;
   createdAt: Date | null;
   updatedAt: Date | null;
 }
